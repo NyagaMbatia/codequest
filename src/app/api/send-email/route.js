@@ -19,16 +19,19 @@ export async function POST(req) {
 
     const mailOptions = {
         from: parentEmail,
-        to: 'joembatiadev@gmail.com, adnangitonga@gmail.com',
+        to: 'joembatiadev@gmail.com, gabriel.nganga.njogu@gmail.com',
         subject: `CodeQuest Inquiry from ${parentEmail}`,
         text: `
             Dear Tutor,
             
-            ${parentEmail} has just inquired about ${inquiries} and the details of their kid are as follows :
-                Kid's Name: ${kidName}
-                Kid's Age: ${kidAge}
+                ${parentEmail} has just inquired about:  ${inquiries}  
+                
+                and the details of their kid are as follows :
+                    Kid's Name: ${kidName}
+                    Kid's Age: ${kidAge}
 
-            regardd CodeQuest Admin.
+            regards,
+            CodeQuest Admin.
         `,
     };
 

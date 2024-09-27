@@ -6,9 +6,37 @@
 @layer base {
   body {
     overflow-x: hidden;
-    @apply font-kids; /* Apply the custom font */
+    @apply font-kids;
+    /* Apply the custom font */
   }
 }
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(5deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    transform: rotate(2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.wiggle:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
 
 @layer components {
   .header_top__icon_wrapper {
@@ -38,15 +66,18 @@
   }
 
   .custom-slider-container {
-    height:600px; /* Set the height to your desired value */
-    overflow: hidden; /* Ensure any overflowing content is hidden */
+    height: 600px;
+    /* Set the height to your desired value */
+    overflow: hidden;
+    /* Ensure any overflowing content is hidden */
     align-items: center;
   }
-  
+
   .custom-slider-container .slide img {
     height: 100%;
     width: auto;
-    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    object-fit: cover;
+    /* Maintain aspect ratio and cover the container */
   }
-  
+
 }

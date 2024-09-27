@@ -1,15 +1,14 @@
-
 import React from "react";
-
+import Link from "next/link"; // Import Link from next/link
 import { BsSearch } from "react-icons/bs";
 
 const HeaderMain = () => {
     return (
         <div className="border-b border-gray-200 py-6">
             <div className="container sm:flex justify-between items-center">
-                <div className="font-bold text-4xl text-center pb-4 sm:pb-0 text-blackish">
+                <Link href="/" className="font-bold text-4xl text-center pb-4 sm:pb-0 text-blackish">
                     CodeQuest
-                </div>
+                </Link>
 
                 <div className="w-full sm:w-[300px] md:w-[70%] relative">
                     <input

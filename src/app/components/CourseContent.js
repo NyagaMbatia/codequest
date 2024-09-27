@@ -10,7 +10,8 @@ const CourseContent = () => {
 
     // No need to check if client since we're in a client component
     const redirectToForm = () => {
-        router.push('/start-quest-form');  // Ensure the correct path to the form
+        // Opens on new tab
+        window.open('/start-quest-form', '_blank', 'noopener,noreferrer');
     };
     return (
         <div>
@@ -35,7 +36,7 @@ const CourseContent = () => {
                 <section className="mt-16 mb-12 text-center">
                     <button
                         onClick={redirectToForm}
-                        className="text-white bg-accent hover:bg-yellow font-bold py-3 px-8 rounded-full shadow-lg transition duration-300">
+                        className="bg-accent hover:bg-blackish text-white font-bold py-2 px-4 rounded wiggle">
                         Start Your Quest Today!
                     </button>
                 </section>

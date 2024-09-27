@@ -12,12 +12,12 @@ const HeaderTop = () => {
                         <div className="header_top__icon_wrapper">
                             <FaFacebook />
                         </div>
-                        <div className="header_top__icon_wrapper">
+                        <a href="https://wa.me/+254708495293" target="_blank" rel="noopener noreferrer" className="header_top__icon_wrapper">
                             <FaWhatsapp />
-                        </div>
-                        <div className="header_top__icon_wrapper">
-                            <FaInstagram />
-                        </div>
+                        </a>
+                        <a href="https://wa.me/+254723584744" target="_blank" rel="noopener noreferrer" className="header_top__icon_wrapper">
+                            <FaWhatsapp />
+                        </a>
                         <div className="header_top__icon_wrapper">
                             <FaXTwitter />
                         </div>

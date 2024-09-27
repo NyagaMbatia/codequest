@@ -20,21 +20,21 @@ const Hero = () => {
     const slideData = [
         {
             id: 0,
-            img: "/pic6.jpg",
+            img: "/pic3.jpeg",
             title: "HTML For kids",
             mainTitle: "Web basics and core",
             price: "$55",
         },
         {
             id: 1,
-            img: "/pic5.jpg",
+            img: "/pic2.jpeg",
             title: "CSS For kids",
             mainTitle: "Styling Web pages",
             price: "$55",
         },
         {
             id: 2,
-            img: "/pic4.jpg",
+            img: "/pic1.jpeg",
             title: "Javascript for kids",
             mainTitle: "For Realtime functionality",
             price: "$55",

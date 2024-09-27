@@ -9,7 +9,7 @@ const Slide = ({ img, title, mainTitle, price }) => {
 
     // No need to check if client since we're in a client component
     const redirectToForm = () => {
-        router.push('/start-quest-form');  // Ensure the correct path to the form
+        window.open('/start-quest-form', '_blank', 'noopener,noreferrer');
     };
 
     return (
@@ -18,16 +18,27 @@ const Slide = ({ img, title, mainTitle, price }) => {
                 <h3 className='text-accent text-[24px] lg:text-[28px]'> <strong>{title}</strong></h3>
                 <h2 className='text-[yellow] text-[26px] md:text-[30px] lg:text-[44px] font-bold leading-[1.2]'>{mainTitle}</h2>
 
-                <h3 className='text-[24px] text-gray-500'>
-                    starting at <strong className='text-[20px] text-accent md:text-[24px] lg:text-[30px]'>{price}.00</strong> only!
-                </h3>
+                <div className='flex items-center justify-center'>
+                    <span className='text-[20px] text-[#FFFFFF] mr-2'>Was</span>
+                    <h3 className='text-[20px] text-accent line-through mr-2'>
+                        $70.00
+                    </h3>
+                    <h3 className='text-[24px] text-[#FFFFFF]'>
+                        Now starting at <strong className='text-[20px] text-accent md:text-[24px] lg:text-[30px]'>{price}.00</strong> only!
+                    </h3>
+                </div>
+
+
                 <div className='bg-accent text-blackish text-[14px] md:text-[16px]
-                 p-2 px-4 rounded-lg inline-block cursor-pointer hover:bg-blackish hover:text-white'> <button
+                 p-2 px-4 rounded-lg inline-block cursor-pointer hover:bg-blackish hover:text-white'> 
+                    <button
                         onClick={redirectToForm}
-                        className="bg-accent hover:bg-blackish text-white font-bold py-2 px-4 rounded"
+                        className="bg-accent hover:bg-blackish text-white font-bold py-2 px-4 rounded wiggle"
                     >
                         Start Quest
-                    </button></div>
+                    </button>
+                </div>
+
             </div>
             <Image className='w-full h-auto max-h-[500px] rounded-xl object-cover object-left'
                 src={img} alt='Courses Coming Soon' width={2000} height={2000} />

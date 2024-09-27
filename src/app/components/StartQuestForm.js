@@ -1,21 +1,51 @@
 'use client';
 
 import React, { useState } from 'react';
+import confetti from 'canvas-confetti';
 
 const StartQuestForm = () => {
     const [formData, setFormData] = useState({
         kidName: '',
         phoneNumber: '',
         kidAge: '',
-        parentEmail: '',  // <-- New field
+        parentEmail: '',
         inquiries: '',
     });
 
+    const [isFormValid, setIsFormValid] = useState(false);
+
     const handleChange = (e) => {
+        const { name, value } = e.target;
+
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value,
+            [name]: value,
         });
+
+        // Check if all fields are filled
+        const allFieldsFilled = Object.values({ ...formData, [name]: value }).every(field => field.trim() !== '');
+        setIsFormValid(allFieldsFilled);
+    };
+
+    const triggerConfetti = () => {
+        const totalBursts = 1;
+        const duration = 200;
+        const particleCount = 150;
+
+        for (let i = 0; i < totalBursts; i++) {
+            setTimeout(() => {
+                confetti({
+                    particleCount,
+                    spread: 100,
+                    origin: { y: 0.6 },
+                });
+            }, i * duration);
+        }
+    };
+
+    const handleButtonClick = () => {
+        triggerConfetti();
+        window.open('/start-quest-form', '_blank', 'noopener,noreferrer');
     };
 
     const handleSubmit = async (e) => {
@@ -41,7 +71,9 @@ const StartQuestForm = () => {
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg">
                 <h2 className="text-2xl font-bold mb-6 text-accent text-center">Start Quest Today</h2>
 
-                <label className="block text-gray-700 text-sm font-bold mb-2">Kid's Name</label>
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                    Kid's Name <span className="text-red-500">*</span>
+                </label>
                 <input
                     type="text"
                     name="kidName"
@@ -52,29 +84,35 @@ const StartQuestForm = () => {
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
 
-                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">Parent/Guardian Email</label>
+                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">
+                    Parent/Guardian Email <span className="text-red-500">*</span>
+                </label>
                 <input
                     type="email"
                     name="parentEmail"
-                    placeholder='Jane Doe'
+                    placeholder="Jane Doe"
                     value={formData.parentEmail}
                     onChange={handleChange}
                     required
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
 
-                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">Parent/Guardian Phone Number</label>
+                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">
+                    Parent/Guardian Phone Number <span className="text-red-500">*</span>
+                </label>
                 <input
                     type="text"
                     name="phoneNumber"
-                    placeholder='+254 047 047 047'
+                    placeholder="+254 047 047 047"
                     value={formData.phoneNumber}
                     onChange={handleChange}
                     required
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
 
-                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">Kid's Age</label>
+                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">
+                    Kid's Age <span className="text-red-500">*</span>
+                </label>
                 <input
                     type="number"
                     name="kidAge"
@@ -84,19 +122,23 @@ const StartQuestForm = () => {
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 />
 
-                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">Inquiries</label>
+                <label className="block text-gray-700 text-sm font-bold mt-4 mb-2">
+                    Inquiries <span className="text-red-500">*</span>
+                </label>
                 <textarea
                     name="inquiries"
                     value={formData.inquiries}
-                    placeholder='How do I make the payment?'
+                    placeholder="How do I make the payment?"
                     onChange={handleChange}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     rows="4"
                 />
 
                 <button
-                    type="submit"
-                    className="bg-accent hover:bg-blackish text-white font-bold py-2 px-4 rounded mt-6 text-center"
+                    type="button"
+                    onClick={handleButtonClick}
+                    disabled={!isFormValid} // Disable button if form is not valid
+                    className={`bg-accent hover:bg-blackish text-white font-bold py-2 px-4 rounded mt-6 text-center ${!isFormValid ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                     Start Quest
                 </button>
