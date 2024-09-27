@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+@layer base {
+  body {
+    overflow-x: hidden;
+    @apply font-kids; /* Apply the custom font */
+  }
+}
+
+@layer components {
+  .header_top__icon_wrapper {
+    @apply bg-gray-200 rounded-md p-[6px] text-[14px] cursor-pointer hover:bg-accent hover:text-white;
+  }
+
+  .navbar__link:hover {
+    color: #F28C28;
+    transition: all 0.4s;
+  }
+
+  .navbar__link::after {
+    position: absolute;
+    content: "";
+    background-color: #F28C28;
+    height: 3px;
+    width: 100%;
+    bottom: -5px;
+    left: 0;
+    scale: 0;
+    transform-origin: left;
+    transition: all 0.4s;
+  }
+
+  .navbar__link:hover::after {
+    scale: 1;
+  }
+
+  .custom-slider-container {
+    height:600px; /* Set the height to your desired value */
+    overflow: hidden; /* Ensure any overflowing content is hidden */
+    align-items: center;
+  }
+  
+  .custom-slider-container .slide img {
+    height: 100%;
+    width: auto;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+  
+}
