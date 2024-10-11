@@ -1,7 +1,7 @@
 
 import React from "react";
 
-import { FaWhatsapp, FaXTwitter, FaInstagram, FaFacebook } from "react-icons/fa6";
+import { FaWhatsapp, FaXTwitter, FaFacebook } from "react-icons/fa6";
 
 const HeaderTop = () => {
     return (

@@ -11,7 +11,9 @@ const CourseContent = () => {
     // No need to check if client since we're in a client component
     const redirectToForm = () => {
         // Opens on new tab
-        window.open('/start-quest-form', '_blank', 'noopener,noreferrer');
+        // window.open('/start-quest-form', '_blank', 'noopener,noreferrer');
+        // Opens on same tab
+        window.open('/start-quest-form', '_self');
     };
     return (
         <div>

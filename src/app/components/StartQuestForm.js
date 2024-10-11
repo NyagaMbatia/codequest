@@ -44,9 +44,13 @@ const StartQuestForm = () => {
     };
 
     const handleButtonClick = () => {
-        triggerConfetti();
-        window.open('/start-quest-form', '_blank', 'noopener,noreferrer');
+        triggerConfetti(); // Start confetti animation
+        // Open the new window after 3 seconds (3000ms)
+        setTimeout(() => {
+            window.open('/', '_blank', 'noopener,noreferrer');
+        }, 3000); // Adjust the time to match the duration of the confetti animation
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();

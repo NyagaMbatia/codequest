@@ -9,7 +9,7 @@ const Slide = ({ img, title, mainTitle, price }) => {
 
     // No need to check if client since we're in a client component
     const redirectToForm = () => {
-        window.open('/start-quest-form', '_blank', 'noopener,noreferrer');
+        window.open('/start-quest-form', '_self');
     };
 
     return (
@@ -30,7 +30,7 @@ const Slide = ({ img, title, mainTitle, price }) => {
 
 
                 <div className='bg-accent text-blackish text-[14px] md:text-[16px]
-                 p-2 px-4 rounded-lg inline-block cursor-pointer hover:bg-blackish hover:text-white'> 
+                 p-2 px-4 rounded-lg inline-block cursor-pointer hover:bg-blackish hover:text-white'>
                     <button
                         onClick={redirectToForm}
                         className="bg-accent hover:bg-blackish text-white font-bold py-2 px-4 rounded wiggle"
