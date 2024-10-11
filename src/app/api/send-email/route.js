@@ -23,13 +23,13 @@ export async function POST(req) {
         subject: `CodeQuest Inquiry from ${parentEmail}`,
         text: `
             Dear Tutor,
-            
-                ${parentEmail} has just inquired about:  ${inquiries}  
-                
-                and the details of their kid are as follows :
-                    Kid's Name: ${kidName}
-                    Kid's Age: ${kidAge}
-
+                        
+            ${parentEmail} has just inquired about:  ${inquiries}  
+                            
+            and the details of their kid are as follows :
+                                Kid's Name: ${kidName}
+                                Kid's Age: ${kidAge} 
+                                The parents phone number is ${phoneNumber}
             regards,
             CodeQuest Admin.
         `,
